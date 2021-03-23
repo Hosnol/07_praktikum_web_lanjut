@@ -18,7 +18,7 @@ class MahasiswaController extends Controller
         //fungsi eloquent menampilkan data menggunakan pagination
         $mahasiswas = Mahasiswa::all(); //mengambil semua isi tabel
         $posts = Mahasiswa::orderBy('nim', 'desc')->paginate(6);
-        return view('mahasiswa.index', compact('mahasiswas'))->with('i', (request()->input('page', 1 ) - 1) * 5);
+        return view('users.index', compact('mahasiswa'))->with('i', (request()->input('page', 1 ) - 1) * 5);
     }
 
     /**
@@ -28,7 +28,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('mahasiswas.create');
+        return view('users.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class MahasiswaController extends Controller
         Mahasiswa::create($request->all());
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
-        return redirect()->route('mahasiswas.index')->with('success', 'Mahasiswa berhasil ditambahkan');
+        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil ditambahkan');
     }
 
     /**
@@ -65,7 +65,7 @@ class MahasiswaController extends Controller
     {
         //menampilkan detail data dengan menentukan/berdasarkan nim mahasiswa
         $Mahasiswa = Mahasiswa::find($nim);
-        return view('mahasiswas.detail', compact('Mahasiswa'));
+        return view('users.detail', compact('Mahasiswa'));
     }
 
     /**
@@ -77,8 +77,8 @@ class MahasiswaController extends Controller
     public function edit($nim)
     {
         //menampilkan detal data dengan menentukan berdasarkan nim mahasiswa untuk di edit
-        $mahasiswa = Mahasiswa::find($nim);
-        return view('mahasiswas.edit', compact('Mahasiswa'));
+        $Mahasiswa = Mahasiswa::find($nim);
+        return view('users.edit', compact('Mahasiswa'));
     }
 
     /**
@@ -103,7 +103,7 @@ class MahasiswaController extends Controller
         Mahasiswa::find($nim)->update($request->all());
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
-        return redirect()->route('mahasiswas.index')->with('success', 'Mahasiswa berhasil diupdate');
+        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil diupdate');
     }
 
     /**
