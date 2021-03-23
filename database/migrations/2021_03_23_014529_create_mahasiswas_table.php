@@ -18,7 +18,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nama', 50)->nullable();
             $table->string('kelas', 10)->nullable();
             $table->string('jurusan', 50)->nullable();
-            $table->string('no_hanphone', 20)->nullable();
+            $table->string('no_handphone', 20)->nullable();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateMahasiswasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mahasiswas');
+        Schema::dropIfExists('mahasiswa');
     }
 }
