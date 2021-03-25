@@ -127,4 +127,12 @@ class MahasiswaController extends Controller
         return view('users.tampil', compact('Mahasiswas'));
     }
 
+    public function cari(Request $request){
+        //melakukan validasi data
+        $cari=$request->cari;
+
+        $Mahasiswa = Mahasiswa::where('nama','like',"%".$cari."%")->get();
+
+        return view('users.index',['mahasiswas'=>$Mahasiswa]);
+    }
 }

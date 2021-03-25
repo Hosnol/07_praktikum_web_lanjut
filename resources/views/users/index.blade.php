@@ -9,6 +9,12 @@
             <div class="float-right my-2">
                 <a class="btn btn-success" href="{{route('mahasiswa.create')}}"> Input Mahasiswa</a>
             </div>
+            <div class="float-left my-2">
+                <p> Cari data Mahasiswa : </p>
+                <form action="{{'/cari'}}" method="GET">
+                    <input type="text" name="cari" placeholder="Cari mahasiswa .." value="{{ old('cari') }}">
+                    <input type="submit" value="cari">
+            </div>
         </div>
     </div>
 
