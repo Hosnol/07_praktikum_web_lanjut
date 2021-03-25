@@ -24,6 +24,8 @@
            <th>Nama</th>
            <th>Kelas</th>
            <th>Jurusan</th>
+           <th>Tanggal lahir</th>
+           <th>Email</th>
            <th>No_Handphone</th>
            <th width="280px">Action</th>
         </tr>
@@ -34,6 +36,8 @@
                 <td>{{$Mahasiswa->nama}}</td> 
                 <td>{{$Mahasiswa->kelas}}</td>
                 <td>{{$Mahasiswa->jurusan}}</td>
+                <td>{{ Date::parse($Mahasiswa->tgl_lahir)->format('j F Y') }}</td>
+                <td>{{$Mahasiswa->email}}</td>
                 <td>{{$Mahasiswa->no_handphone}}</td>
                 <td> 
                     <form action="{{route('mahasiswa.destroy',$Mahasiswa->nim)}}" method="POST">

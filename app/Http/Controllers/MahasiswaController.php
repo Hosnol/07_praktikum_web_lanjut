@@ -45,6 +45,8 @@ class MahasiswaController extends Controller
             'nama' => 'required',
             'kelas' => 'required',
             'jurusan' => 'required',
+            'tgl_lahir' => 'required',
+            'email' => 'required',
             'no_handphone' => 'required'
         ]);
 
@@ -96,6 +98,8 @@ class MahasiswaController extends Controller
             'nama' => 'required',
             'kelas' => 'required',
             'jurusan' => 'required',
+            'tgl_lahir' => 'required',
+            'email' => 'required',
             'no_handphone' => 'required' 
         ]);
 
