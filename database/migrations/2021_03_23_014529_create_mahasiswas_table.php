@@ -19,6 +19,8 @@ class CreateMahasiswasTable extends Migration
             $table->string('kelas', 10)->nullable();
             $table->string('jurusan', 50)->nullable();
             $table->string('no_handphone', 20)->nullable();
+            $table->string('email')->nullable();
+            $table->date('tgl_lahir')->nullable();
         });
     }
 
