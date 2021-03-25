@@ -18,7 +18,7 @@ class MahasiswaController extends Controller
         //fungsi eloquent menampilkan data menggunakan pagination
         $mahasiswas = Mahasiswa::all(); //mengambil semua isi tabel
         $posts = Mahasiswa::orderBy('nim', 'desc')->paginate(6);
-        return view('users.index', compact('mahasiswa'))->with('i', (request()->input('page', 1 ) - 1) * 5);
+        return view('users.index', compact('mahasiswas'))->with('i', (request()->input('page', 1 ) - 1) * 5);
     }
 
     /**

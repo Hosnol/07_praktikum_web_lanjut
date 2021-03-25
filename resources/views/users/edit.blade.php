@@ -8,12 +8,12 @@
                     Edit Mahasiswa
                 </div>
                 <div class="card-body">
-                    @if ($erors->any())
+                    @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong> Whoops!!</strong> There were some problems with your input.<br><br>
                             <ul>
-                                @foreach ($erors->all() as $eror)
-                                    <li>{{ $eror }}</li>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -24,23 +24,23 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="nim">Nim</label>
-                            <input type="text" name="nim" class="formcontrol" id="nim" aria-describedby="nim">  
+                            <br><input type="text" name="nim" class="formcontrol" id="nim" value="{{ $Mahasiswa->nim }}" aria-describedby="nim">  
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="nama" name="nama" class="formcontrol" id="nama" aria-describedby="nama">
+                            <br><input type="nama" name="nama" class="formcontrol" id="nama" value="{{ $Mahasiswa->nama }}" aria-describedby="nama">
                         </div>
                         <div class="form-group">
                             <label for="kelas">Kelas</label>
-                            <input type="kelas" name="kelas" class="formcontrol" id="kelas" aria-describedby="kelas">
+                            <br><input type="kelas" name="kelas" class="formcontrol" id="kelas" value="{{ $Mahasiswa->kelas }}" aria-describedby="kelas">
                         </div>
                         <div class="form-group">
                             <label for="jurusan">Jurusan</label>
-                            <input type="jurusan" name="jurusan" class="formcontrol" id="jurusan" aria-describedby="jurusan">
+                            <br><input type="jurusan" name="jurusan" class="formcontrol" id="jurusan" value="{{ $Mahasiswa->jurusan }}" aria-describedby="jurusan">
                         </div>
                         <div class="form-group">
                             <label for="no_handphone">No_Handphone</label>
-                            <input type="no_handphone" name="no_handphone" class="formcontrol" id="no_handphone" aria-describedby="no_handphone">
+                            <br><input type="no_handphone" name="no_handphone" class="formcontrol" id="no_handphone" value="{{ $Mahasiswa->no_handphone }}" aria-describedby="no_handphone">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

@@ -13,6 +13,6 @@ class Mahasiswa extends Model //definisi model
     protected $table = "mahasiswa"; //eloquent akan membuat model mahasisw menyimpan record di table mahasiswas
     public $timestamps = false;
     public $incrementing = false;
-    protected $primariKey =  'nim'; //memanggil isi DB dengan primary key
+    protected $primaryKey = 'nim'; //memanggil isi DB dengan primary key
     protected $fillable = ['nim','nama','kelas','jurusan','no_handphone'];
 }
