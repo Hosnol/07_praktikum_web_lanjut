@@ -121,4 +121,10 @@ class MahasiswaController extends Controller
         Mahasiswa::find($nim)->delete();
         return redirect()->route('mahasiswa.index')-> with('success', 'Mahasiswa berhasil dihapus');
     }
+
+    public function tampil(){
+        $Mahasiswas = Mahasiswa::paginate(5);
+        return view('users.tampil', compact('Mahasiswas'));
+    }
+
 }
