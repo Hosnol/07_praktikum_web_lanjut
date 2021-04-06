@@ -24,31 +24,35 @@
                         @csrf
                         <div class="form-group">
                             <label for="nim">Nim</label>
-                            <br><input type="text" name="nim" class="formcontrol" id="nim" aria-describedby="nim" >
+                            <br><input type="text" name="nim" class="form-control" id="nim" aria-describedby="nim" >
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <br><input type="nama" name="nama" class="formcontrol" id="nama" aria-describedby="nama" >
+                            <br><input type="nama" name="nama" class="form-control" id="nama" aria-describedby="nama" >
                         </div>
                         <div class="form-group">
                             <label for="kelas">Kelas</label>
-                            <br><input type="kelas" name="kelas" class="formcontrol" id="kelas" aria-describedby="kelas" >
+                            <select class="form-control">
+                                @foreach ($kelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_kelas }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="jurusan">Jurusan</label>
-                            <br><input type="jurusan" name="jurusan" class="formcontrol" id="jurusan" aria-describedby="jurusan" >
+                            <br><input type="jurusan" name="jurusan" class="form-control" id="jurusan" aria-describedby="jurusan" >
                         </div>
                         <div class="form-group">
                             <label for="tgl_lahir">Tanggal Lahir</label>
-                            <br><input type="tgl_lahir" name="tgl_lahir" class="formcontrol" id="tgl_lahir" aria-describedby="tgl_lahir" >
+                            <br><input type="tgl_lahir" name="tgl_lahir" class="form-control" id="tgl_lahir" aria-describedby="tgl_lahir" >
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <br><input type="email" name="email" class="formcontrol" id="email" aria-describedby="email" >
+                            <br><input type="email" name="email" class="form-control" id="email" aria-describedby="email" >
                         </div>
                         <div class="form-group">
                             <label for="no_handphone">No_Handphone</label>
-                            <br><input type="no_handphone" name="no_handphone" class="formcontrol" id="no_handphone" aria-describedby="no_handphone" >
+                            <br><input type="no_handphone" name="no_handphone" class="form-control" id="no_handphone" aria-describedby="no_handphone" >
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
