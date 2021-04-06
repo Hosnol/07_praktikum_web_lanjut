@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MahasiswaMatakuliah extends Migration
+class CreateMahasiswaMatakuliahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class MahasiswaMatakuliah extends Migration
      */
     public function up()
     {
-        Schema::table('mahasiswa_matakuliah', function(Blueprint $table) {
+        Schema::create('mahasiswa_matakuliah', function (Blueprint $table) {
             $table->id();
             $table->foreign('mahasiswa_id',20)->references('nim')->on('mahasiswa');
             $table->foreign('matakuliah_id')->references('id')->on('matakuliah');
-            $table->integer('nilai');
-        });  
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class MahasiswaMatakuliah extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('mahasiswa_matakuliah');
     }
 }
