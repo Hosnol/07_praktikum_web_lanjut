@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model; //model Eloquent
 use App\Models\Kelas;
+use App\Models\Mahasiswa_Matakuliah;
+
 
 class Mahasiswa extends Model //definisi model
 {
@@ -18,4 +20,10 @@ class Mahasiswa extends Model //definisi model
     {
         return $this->belongsTo(Kelas::class);
     }
+
+    public function mahasiswa_matakuliah()
+    {
+        return $this->belongsToMany(Mahasiswa_Matakuliah::class);
+    }
+
 }
