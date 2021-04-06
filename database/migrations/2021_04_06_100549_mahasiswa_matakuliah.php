@@ -13,7 +13,12 @@ class MahasiswaMatakuliah extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('mahasiswa_matakuliah', function(Blueprint $table) {
+            $table->id();
+            $table->foreign('mahasiswa_id',20)->references('nim')->on('mahasiswa');
+            $table->foreign('matakuliah_id')->references('id')->on('matakuliah');
+            $table->integer('nilai');
+        });  
     }
 
     /**
