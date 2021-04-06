@@ -40,7 +40,7 @@
             <tr>
                 <td>{{$Mahasiswa->nim}}</td>
                 <td>{{$Mahasiswa->nama}}</td> 
-                <td>{{$Mahasiswa->kelas}}</td>
+                <td>{{$Mahasiswa->kelas->nama_kelas}}</td>
                 <td>{{$Mahasiswa->jurusan}}</td>
                 <td>{{ Date::parse($Mahasiswa->tgl_lahir)->format('j F Y') }}</td>
                 <td>{{$Mahasiswa->email}}</td>
