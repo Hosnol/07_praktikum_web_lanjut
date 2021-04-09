@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Models\Matakuliah;
 use Database\Seeders\MahasiswaSeeder;
 
 class MahasiswaController extends Controller
@@ -78,11 +79,11 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nim)
+    public function show($id)
     {
         //menampilkan detail data dengan menentukan/berdasarkan nim mahasiswa
         //code sebelum dibuat relasi-->$mahasiswa = Mahasiswa::find($nim);
-        $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
+        $Mahasiswa = Mahasiswa::with('kelas')->where('id', $id)->first();
         return view('users.detail',['Mahasiswa'=>$Mahasiswa]);
     }
 
@@ -92,10 +93,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($nim)
+    public function edit($id)
     {
         //menampilkan detail data dengan menentukan berdasarkan nim mahasiswa untuk di edit
-        $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
+        $Mahasiswa = Mahasiswa::with('kelas')->where('id', $id)->first();
         $kelas = Kelas::all(); //mendapatkan data dari tabel kelas
         return view('users.edit', compact('Mahasiswa','kelas'));
     }
@@ -107,7 +108,7 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $nim)
+    public function update(Request $request, $id)
     {
         //melakukan validasi data
         $request->validate([
@@ -120,7 +121,7 @@ class MahasiswaController extends Controller
             'no_handphone' => 'required' 
         ]);
 
-        $mahasiswa = Mahasiswa::with('kelas')->where('nim',$nim)->first();
+        $mahasiswa = Mahasiswa::with('kelas')->where('id',$id)->first();
         $mahasiswa->nim = $request->get('nim');
         $mahasiswa->nama = $request->get('nama');
         $mahasiswa->jurusan = $request->get('jurusan');
@@ -146,9 +147,9 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($nim)
+    public function destroy($id)
     {
-        Mahasiswa::find($nim)->delete();
+        Mahasiswa::find($id)->delete();
         return redirect()->route('mahasiswa.index')-> with('success', 'Mahasiswa berhasil dihapus');
     }
 
@@ -164,5 +165,11 @@ class MahasiswaController extends Controller
         $Mahasiswa = Mahasiswa::where('nama','like',"%".$cari."%")->get();
 
         return view('users.index',['mahasiswas'=>$Mahasiswa]);
+    }
+
+    public function hasil($id)
+    {   
+        $Mahasiswa = Mahasiswa::find($id);
+        return view('users.khs',['Mahasiswa'=>$Mahasiswa]);
     }
 }
